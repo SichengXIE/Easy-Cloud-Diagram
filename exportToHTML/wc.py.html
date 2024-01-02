@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>wc.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #8c8c8c; font-style: italic;}
+.s3 { color: #067d17;}
+.s4 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+wc.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">matplotlib.pyplot </span><span class="s0">as </span><span class="s1">plt</span>
+<span class="s0">from </span><span class="s1">wordcloud </span><span class="s0">import </span><span class="s1">WordCloud</span>
+
+<span class="s0">def </span><span class="s1">generate_wordcloud(types, counts):</span>
+    <span class="s2">&quot;&quot;&quot; 
+    生成词云图 
+ 
+    Parameters: 
+    - types: 博主类型 
+    - counts: 被关注的数量 
+ 
+    @Auther 闫慧芸 
+    &quot;&quot;&quot;</span>
+    <span class="s2"># 将类型和关注数量转换为字典</span>
+    <span class="s1">words = {types[i]: counts[i] </span><span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(len(types))}</span>
+
+    <span class="s2"># 使用系统字体</span>
+    <span class="s1">font_path = </span><span class="s3">&quot;/System/Library/Fonts/STHeiti Medium.ttc&quot;</span>
+
+    <span class="s2"># 生成词云图</span>
+    <span class="s1">wordcloud = WordCloud(width=</span><span class="s4">800</span><span class="s1">, height=</span><span class="s4">400</span><span class="s1">, background_color=</span><span class="s3">'white'</span><span class="s1">, font_path=font_path,</span>
+                          <span class="s1">colormap=</span><span class="s3">'Blues_r'</span><span class="s1">).generate_from_frequencies(words)</span>
+
+    <span class="s2"># 创建图像</span>
+    <span class="s1">plt.figure(figsize=(</span><span class="s4">10</span><span class="s1">, </span><span class="s4">5</span><span class="s1">))</span>
+    <span class="s1">plt.imshow(wordcloud, interpolation=</span><span class="s3">'bilinear'</span><span class="s1">)</span>
+    <span class="s1">plt.axis(</span><span class="s3">'off'</span><span class="s1">)</span>
+
+    <span class="s2"># 保存词云图像</span>
+    <span class="s1">plt.savefig(save_path, bbox_inches=</span><span class="s3">'tight'</span><span class="s1">, pad_inches=</span><span class="s4">0.2</span><span class="s1">)</span>
+    <span class="s1">plt.show()</span>
+
+<span class="s2"># 应用/运行</span>
+<span class="s1">types = [</span><span class="s3">&quot;美食&quot;</span><span class="s1">, </span><span class="s3">&quot;旅行&quot;</span><span class="s1">, </span><span class="s3">&quot;健身&quot;</span><span class="s1">, </span><span class="s3">&quot;美妆&quot;</span><span class="s1">, </span><span class="s3">&quot;穿搭&quot;</span><span class="s1">, </span><span class="s3">&quot;探店&quot;</span><span class="s1">, </span><span class="s3">&quot;游戏&quot;</span><span class="s1">, </span><span class="s3">&quot;电子产品推荐&quot;</span><span class="s1">, </span><span class="s3">&quot;养生&quot;</span><span class="s1">, </span><span class="s3">&quot;萌宠&quot;</span><span class="s1">, </span><span class="s3">&quot;其他&quot;</span><span class="s1">]</span>
+<span class="s1">fan_counts = [</span><span class="s4">43</span><span class="s1">, </span><span class="s4">66</span><span class="s1">, </span><span class="s4">36</span><span class="s1">, </span><span class="s4">40</span><span class="s1">, </span><span class="s4">87</span><span class="s1">, </span><span class="s4">56</span><span class="s1">, </span><span class="s4">61</span><span class="s1">, </span><span class="s4">74</span><span class="s1">, </span><span class="s4">60</span><span class="s1">, </span><span class="s4">54</span><span class="s1">, </span><span class="s4">5</span><span class="s1">]</span>
+
+<span class="s1">save_path = </span><span class="s3">&quot;wordcloud_image.png&quot;</span>
+<span class="s1">generate_wordcloud(types, fan_counts)</span>
+</pre>
+</body>
+</html>
