@@ -1,6 +1,6 @@
 ![wordcloud_image.png](wordcloud_image.png)
 
-# Word Cloud Generator for YouTuber Types and Fan Counts
+# Word Cloud Generator for Types and Counts
 
 This Python script generates a visually appealing word cloud based on YouTuber types and their corresponding fan counts. Users can input a list of YouTuber types and fan counts, and the script will create a word cloud image using the wordcloud library and display it using matplotlib.pyplot.
 
@@ -20,7 +20,7 @@ Run the script by executing the following command in your terminal:
 python wordcloud_generator.py
 </pre>
 
-1. Enter the YouTuber types when prompted. Separate the types by commas.
+1. Enter the types when prompted. Separate the types by commas.
 2. Enter the corresponding fan counts when prompted. Separate the counts by commas.
 3. The script will generate a word cloud and display it using matplotlib.pyplot. 
 
